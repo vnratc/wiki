@@ -6,8 +6,8 @@
 
 {% block body %}
 
-    <h1>{{ title_session }}</h1>
-    <p>{{ contents }}</p>
+    <!-- <h1>{{ title_session }}</h1> -->
+    <p>{{ contents | safe }}</p>
 
     <a href="{% url 'edit_page' %}" class="btn btn-secondary">Edit Content</a>
 

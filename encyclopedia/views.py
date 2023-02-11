@@ -1,4 +1,5 @@
 import random
+from markdown2 import Markdown
 
 from django import forms
 from django.http import HttpResponseRedirect, HttpResponse
@@ -10,7 +11,7 @@ from . import util
 
 class SearchForm(forms.Form):
 #     # Use widget=forms.TextInput(attrs={}) to give atributes to the <form> html element
-    q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder':'Search Encyclopedia', 'class':'search'}))
+    q = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder':'Search Encyclopedia', 'class':'search form-control'}))
 
 views_list = ['index', 'display_contents', 'search', 'new_page', 'edit_page', 'save_edit', 'random_entry']    
 
@@ -26,7 +27,8 @@ def display_contents(request, title):
         for t in util.list_entries():
             if t.lower() == title.lower(): title = t
         request.session["title"] = title
-        contents = util.get_entry(title)
+        markdowner = Markdown()
+        contents = markdowner.convert(util.get_entry(title))
         return render(request, "encyclopedia/contents.html", {
             "contents": contents,
             "form": SearchForm,
