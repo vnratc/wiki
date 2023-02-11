@@ -1,17 +1,14 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    {{ title }}
+    {{ title_session }}
 {% endblock %}
 
 {% block body %}
 
-    <h1>{{ title }}</h1>
+    <h1>{{ title_session }}</h1>
     <p>{{ contents }}</p>
-    <form action="{% url 'edit_page' %}" hidden id="edit" method="post">
-        {% csrf_token %}
-        <input name="title_e" type="text" value="{{ title }}"></form>
-    <button class="btn btn-secondary" form="edit">Edit Content</button>
-    {{ HForm }}
+
+    <a href="{% url 'edit_page' %}" class="btn btn-secondary">Edit Content</a>
 
 {% endblock %}
