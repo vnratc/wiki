@@ -8,7 +8,7 @@ code {
 }
 
 * {
-    font-family: 'Caveat', cursive;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.2rem;
 }
 
@@ -22,8 +22,13 @@ textarea {
     width: 80%;
 }
 
+html {
+    background-color: #f0f0f0;
+}
+
 .main {
-    padding: 10px;
+    padding: 20px;
+    background-color: aliceblue;
 }
 
 .search {
@@ -35,7 +40,7 @@ textarea {
 .sidebar {
     background-color: #f0f0f0;
     height: 100vh;
-    padding: 20px;
+    padding: 10px;
 }
 
 .sidebar h2 {
@@ -45,9 +50,25 @@ textarea {
 /* To prevent row from overflowing html */
 .row {
     --bs-gutter-x: 0;
+    background-color: #f0f0f0;
 }
 
-a {
+a, a:hover {
     text-decoration: none;
+}
+
+.nav {
+    /* display: block; */
+}
+
+.input-group {
+    display: inline-block;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        height: auto;
+    }
 }
 

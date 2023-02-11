@@ -59,8 +59,8 @@ def search(request):
         return display_contents(request, "search")
 
 class NewPage(forms.Form):
-    page_title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'aria-label': 'Title'}))
-    page_content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'aria-label': 'Markdown Content'}))
+    page_title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control w-100', 'aria-label': 'Title'}))
+    page_content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control w-100', 'aria-label': 'Markdown Content'}))
 
 def new_page(request):
     if request.method == "POST":
@@ -92,7 +92,7 @@ def edit_page(request):
     contents_e = util.get_entry(title_e)
     # Create a form for editing and populate it
     class Edit(forms.Form):
-        edit_content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'aria-label': 'Markdown Content'}), initial=contents_e)
+        edit_content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control w-100', 'aria-label': 'Markdown Content'}), initial=contents_e)
     return render(request, "encyclopedia/edit_page.html", {
         "form_e": Edit,
         "title_session": request.session["title"]
