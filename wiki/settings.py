@@ -10,6 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+# from django.core.management.commands.runserver import Command as runserver
+
+# ALLOWED_HOSTS = ['*']
+# runserver.default_port = '5001'        # <-- Your port
+# runserver.default_addr = '127.0.0.1'   # <-- Your address
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,7 +31,7 @@ SECRET_KEY = '%710m*zic)#0u((qugw#1@e^ty!c)9j04956v@ly(_86n$rg)h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.20.10.2', '0.0.0.0']
 
 
 # Application definition

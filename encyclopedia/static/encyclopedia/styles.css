@@ -72,3 +72,6 @@ a, a:hover {
     }
 }
 
+.main {
+    border-radius: 40px;
+}
